@@ -1,0 +1,61 @@
+{% block content %}
+<html>
+    <body bgcolor="DarkSlateGrey">
+<h1>       <style>
+    body {
+        background-image: url('https://images.pexels.com/photos/8462313/pexels-photo-8462313.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        background-size: cover;
+    }
+
+    p {
+			color: rgb(12, 6, 6);
+		}
+
+        a span {
+			color: rgb(24, 15, 15);
+		}
+</style>
+</h1>
+<h3>
+
+
+<p align ="center" bgcolor="black">
+    <span>
+    
+    <a href="{% url 'signup' %}"  style="color:rgb(245, 239, 240) "class="text-primary"><span>SIGNUP</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <a href="{% url 'login' %}"  style="color:rgb(250, 242, 242)"class="text-primary"><span>LOGIN</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+    <a href="{% url 'profile' %}" style="color:rgb(250, 242, 242) "class="text-primary"><span>PROFILE</span></a> &nbsp;&nbsp;&nbsp;&nbsp;
+   
+   
+    <a href="{% url 'viewbook' %}" style="color:rgb(250, 242, 242) "class="text-primary"><span>MY BOOKINGS</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <a href="{% url 'bookings' %}" style="color:rgb(250, 242, 242) "class="text-primary"><span>BOOK NOW</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    <a href="{% url 'logout' %}"  style="color:rgb(250, 242, 242)"class="text-primary"><span>LOGOUT</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+   
+</span>
+</p>
+</h3>
+<div>
+
+    <div>
+        <h1 align ="center"class="display-4">Welcome {{user.username.title|default:'Guest'}}</h1>
+    
+        
+    </div>
+    
+
+        
+   </div>
+</div>
+<h3>
+
+</h3>
+
+</body>
+
+</html>
+{% endblock content %}

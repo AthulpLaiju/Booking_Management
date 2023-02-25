@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <body bgcolor="DarkSlateGrey">
+    <h1> <style align=""center>
+        div {
+            background: rgba(197, 215, 221, 0.763);
+          }
+          
+        </style>
+
+    </h1>
+<head>
+
+
+  <title>Book Now</title>
+
+  
+</head>
+
+ 
+  <div>
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth">
+        <div class="row w-100">
+          <div class="col-lg-4 mx-auto">
+            <div class="auth-form-light text-left p-5">
+              {% for message1 in messages %}
+      <h4 style="color: darkred;">{{message1}}</h4>
+      {% endfor %}
+              <h1 style="text-align: center;">Hello! let's get started</h>
+              <h2 style="text-align: center;" class="font-weight-light">Wealth consists not in having great possessions, but in having few wants</h6>
+              <form class="pt-3" method="POST" align="center">
+                {% csrf_token %}
+        
+                <div class="form-group">
+                  Check In
+                  <input type="date" name="checkin" class="form-control form-control-lg" id="exampleInputUsername2" required>
+                </div><br><br>
+                <div class="form-group">
+                  Check Out
+                  <input type="date" name="checkout" class="form-control form-control-lg" id="exampleInputEmail1" required>
+                </div><br><br>
+                <div class="form-group">
+                  No of Adults
+                  <input type="number" min="1"name="noad" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Adults" required>
+                </div><br><br>
+                <div class="form-group">
+                  No of Kids
+                    <input type="number" name="nokid" data-date-inline-picker="true" class="form-control form-control-lg" id="exampleInputPhone1" placeholder="Kids">
+                  </div><br><br>
+                  <div class="form-group">
+                    Booking For
+                    <select name = "booking">
+                      <option value="Houseboat">Houseboat</option>
+                      <option value="Shikkari Boat">Shikkari Boat</option>
+                      <option value="Speed Boat">Speed Boat</option>
+                    </select><br><br>
+                <div class="form-group">
+                  Food Type
+                  <select name = "food">
+                    <option>Type</option>
+                    <option value="Veg">Veg</option>
+                    <option value="Non-Veg">Non Veg</option>
+                    <option value="Veg and Non Veg">Veg and Non-Veg</option>
+                  </select><br><br>
+                <div class="mt-3">
+                  <!-- <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="{% static '../../index-2.html' %}">SIGN UP</a> -->
+                  
+                  <button class="btn btn-block btn-facebook auth-form-btn">
+                    Book Now
+                   </button>
+                </div>
+            
+              </form>
+            </div>
+          </div>
+        </div>
+      </div><br><br>
+
+
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  
+  <!-- endinject -->
+  <script>
+    function onlyNumberKey(evt) {
+  
+        // Only ASCII charactar in that range allowed
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            return false;
+        return true;
+    }
+  </script>
+</body>
+
+
+<!-- Mirrored from www.urbanui.com/melody/template/pages/samples/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:53 GMT -->
+</html>

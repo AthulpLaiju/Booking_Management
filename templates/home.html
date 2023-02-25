@@ -1,0 +1,151 @@
+{% block content %}
+<html>
+    <body bgcolor="DarkSlateGrey">
+<h1> 
+    <style>
+        body{
+   font-size:20px;
+            color: white;
+            background-size: cover;
+        }
+         .box{ width: 900px;
+       float:right;
+       border:1px solid none;}
+       .box ul li{
+           width: 120px;
+           float:left;
+           margin: 10px auto;
+           text-align: center;
+       }
+ .mainmenu
+ .mainmenu a
+ .mainmenu a:hover
+ .mainmenu img{
+ position: fixed;
+ z-index: -1;
+ top:0px; left:0px; width:100%; height: 100vh;
+ opacity: 0.9;
+ /*object-fit:cover;*/
+ transition: all ease 0.5s;
+ }
+   .wd{
+           width: 300px;
+           height: 539px;
+           background-color: black;
+           opacity: 0.8;
+           padding: 55px;
+       }
+       .wd h1{
+           text-align: center;
+           text-transform: uppercase;
+           font-weight: 300px;
+       }
+       .wd h4{
+           text-align: justify;
+           color:darkgray;
+           font-weight: 100px;
+       }
+       .wd h2{
+           text-align: center;
+           text-transform: uppercase;
+           font-weight: normal;
+           margin: 40px auto;
+       }
+       .opt form , input[type="button"]{
+           background-color: black;
+           color:white;
+         /* padding:10px;*/
+           margin:-14px auto;
+           padding-left: 50px;
+           padding-right: 50px;
+           text-align: center;
+           font-size: 16px;
+       }
+     form, input[type="button"] {
+       animation: glowing 300ms infinite;
+       font-weight: 500%;
+      }
+      @keyframes glowing {
+ 0% {
+   background-color: red;
+ }
+ 50% {
+   background-color: orange;
+ }
+ 100% {
+   background-color: blue;
+ }
+ }
+   </style>
+ </head>
+ <body>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script>
+ $(function(){
+ var image = $(".mainmenu").find('img').attr('src');
+ $(".mainmenu a").mouseover(function(){
+ var newimg = $(this).attr('data-image');
+ $(this).parent().find('img').attr("src", newimg);
+ });
+ });
+ </script>
+   <div class="box">
+ <div class="mainmenu">
+ <img src="https://images.pexels.com/photos/8462313/pexels-photo-8462313.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+ <p align ="center" bgcolor="black">
+    <h3>
+    <span>
+    
+    <a href="{% url 'signup' %}"  style="color:rgb(245, 239, 240) "class="text-primary"><span>SIGNUP</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <a href="{% url 'login' %}"  style="color:rgb(250, 242, 242)"class="text-primary"><span>LOGIN</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+    <a href="{% url 'profile' %}" style="color:rgb(250, 242, 242) "class="text-primary"><span>PROFILE</span></a> &nbsp;&nbsp;&nbsp;&nbsp;
+   
+   
+    <a href="{% url 'viewbook' %}" style="color:rgb(250, 242, 242) "class="text-primary"><span>MY BOOKINGS</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <a href="{% url 'bookings' %}" style="color:rgb(250, 242, 242) "class="text-primary"><span>BOOK NOW</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    <a href="{% url 'logout' %}"  style="color:rgb(250, 242, 242)"class="text-primary"><span>LOGOUT</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+   
+</span>
+</h3>
+</p>
+ </div>
+   </div>
+   <div class="wd">
+ <h5> Welcome to xxx</h5>
+ <h7> <i>Order delicious food online, 100% quality, safety and taste assured.</i></h7>
+ <h5> Call 999999999 for reservations</h5>
+ <div class="opt">
+ <form action="" method="post">
+ <input type="button" value="ORDER NOW">
+ </form>      
+</h1>
+<h3>
+
+
+
+</h3>
+<div>
+
+    <div>
+        <h1 align ="center"class="display-4">Welcome {{user.username.title|default:'Guest'}}</h1>
+    
+        
+    </div>
+    
+
+        
+   </div>
+</div>
+<h3>
+
+</h3>
+
+</body>
+
+</html>
+{% endblock content %}

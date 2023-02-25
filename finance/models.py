@@ -32,3 +32,11 @@ class Bookings(models.Model):
     name = models.CharField(max_length=20,default = now,)
     email = models.CharField(max_length=20,default = now)
     phon = models.CharField(max_length=20,default = now,)
+
+class Blog(models.Model):
+    user = models.ForeignKey(to=User,on_delete=models.CASCADE)
+    author = models.CharField(max_length=50)
+    title = models.CharField(max_length=10,default=now)
+    content = models.CharField(max_length=500)
+    date = models.DateField(default = now)
+    is_approved = models.BooleanField(default=False)

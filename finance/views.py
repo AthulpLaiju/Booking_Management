@@ -1,3 +1,5 @@
+from datetime import datetime
+import datetime
 from django.shortcuts import render,redirect
 from finance.models import *
 from user import *
@@ -61,9 +63,47 @@ def home(request):
     return render(request,'home.html')
 
 
+def blog(request):
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            user_id = request.user.id
+            name = request.user.username
+            title = request.POST["title"]
+            content = request.POST["content"]
+            
+            
+           
+            if title is not None:
+                tra = Blog.objects.create(user_id = user_id,author=name,title=title,content=content)
+                tra.save()
+                print("Blog is saved successfully")
+                messages.info(request,"Blog saved successfully")
+                return redirect('blog')
+        else:
+            return render(request,'blog.html')
+    else:
+        return render(request,'blog.html')
 
-
-
+def viewblog(request):
+    if request.user.is_authenticated and request.user.is_staff:
+        blog=Blog.objects.all()
+        
+ 
+        context ={
+                'blog':blog,  
+               
+            
+            }
+    else:
+         blog=Blog.objects.all()
+        
+ 
+         context ={
+                'blog':blog,  
+               
+            
+            }
+    return render(request,'view_blog.html',context)
 
 
 

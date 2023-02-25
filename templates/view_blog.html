@@ -1,0 +1,96 @@
+{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 36px;
+      }
+
+      .blog-list {
+        display: flex;
+        flex-wrap: wrap; /* Allows blogs to wrap to the next row */
+        justify-content: center; /* Centers blogs horizontally */
+        margin: 20px;
+      }
+
+      .blog {
+        background-color: #f2f2f2;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 10px;
+        max-width: 400px; /* Limits the width of each blog */
+        width: 100%;
+      }
+
+      .blog h2 {
+        font-size: 24px;
+        margin: 0;
+      }
+
+      .blog p {
+        margin: 5px 0;
+      }
+
+      .blog .author {
+        font-style: italic;
+      }
+
+      .blog .date {
+        font-size: 12px;
+        color: #999;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>My Blog List</h1>
+    </header>
+    {% for bl in  blog  %}
+    <div class="blog-list">
+      <div class="blog">
+        <h2>bl.title</h2>
+        <p class="author">Author Name 1</p>
+        <p class="date">Posted on January 1, 2023</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed lorem vel enim viverra eleifend. Aliquam erat volutpat.</p>
+      </div>
+      <div class="blog">
+        <h2>Blog Title 2</h2>
+        <p class="author">Author Name 2</p>
+        <p class="date">Posted on January 2, 2023</p>
+        <p>Curabitur malesuada lorem eget neque convallis, ac dictum nisl pellentesque. Etiam convallis venenatis tellus in bibendum.</p>
+      </div>
+      <div class="blog">
+        <h2>Blog Title 3</h2>
+        <p class="author">Author Name 3</p>
+        <p class="date">Posted on January 3, 2023</p>
+        <p>Praesent lobortis lectus quis orci dictum, non dapibus ipsum suscipit. Duis laoreet consequat ex, vel dignissim turpis feugiat eget.</p>
+      </div>
+      <div class="blog">
+        <h2>Blog Title 4</h2>
+        <p class="author">Author Name 4</p>
+        <p class="date">Posted on January 4, 2023</p>
+        <p>Mauris pharetra, ante ut ultricies lacinia, ipsum odio suscipit lectus, vel pretium purus turpis at neque. Donec gravida arcu ex, in tempor eros elementum
+
+
+    {% endfor %}
+
+
+    </p>
+    </div></div></body></html>
+    {% endblock %}

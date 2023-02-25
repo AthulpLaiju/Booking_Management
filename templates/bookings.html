@@ -1,104 +1,238 @@
-{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-  <body bgcolor="DarkSlateGrey">
-    <h1> <style align=""center>
-        div {
-            background: rgba(197, 215, 221, 0.763);
-          }
-          
-        </style>
+<html>
+    <body>
+<h1>
+  <style>
+      body {
+        align-self: center;
+        background-image: url('https://images3.alphacoders.com/886/886666.jpg');
+        
+        
+        background-size: cover;
+       
+      }
 
-    </h1>
+      .card {
+        width: 250px;
+        height: 400px;
+        padding: 1.9rem 1.2rem;
+        text-align: center;
+        background: #2a2b38c2;
+        border-radius: 10px;
+      }
+
+      /*Inputs*/
+      .field {
+        margin-top: .5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #1f2029;
+        gap: .5em;
+        border-radius: 15px;
+        padding: .5em 1em;
+   
+      }
+
+      .input-icon {
+        height: 1em;
+        width: 1em;
+        fill: #ffeba7;
+      }
+
+      .input-field {
+        background: none;
+        border: none;
+        outline: none;
+        width: 100%;
+        color: #d3d3d3;
+      }
+
+      /*Text*/
+      .title {
+        margin-bottom: 1rem;
+        font-size: 1.5em;
+        font-weight: 500;
+        color: #f5f5f5;
+      }
+body{
+  background-color: #161617;
+}
+      .main {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .select-container {
+        margin-top: .5rem;
+        display: flex;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #c2c4d7;
+      
+        background-color: transparent;
+      
+       
+}
+
+.select-container select {
+  width: 100%;
+  padding: 8px;
+  border: none;
+ 
+
+  font-size: 12px;
+  color: rgb(238, 217, 217);
+  box-shadow: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #2a2b38c2;
+}
+
+.select-container select:focus {
+  outline: none;
+  border: 1px solid #1b0f0f;
+}
+
+      /*Buttons*/
+      .btn {
+        margin: 1rem;
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: .8em;
+        text-transform: uppercase;
+        padding: 0.6em 1.2em;
+        background-color: #ffeba7;
+        color: #5e6681;
+        box-shadow: 0 8px 24px 0 rgb(255 235 167 / 20%);
+        transition: all .3s ease-in-out;
+      }
+
+      .btn-link {
+        color: #f5f5f5;
+        display: block;
+        font-size: .75em;
+        transition: color .3s ease-out;
+      }
+
+      /*Hover & focus*/
+      .field input:focus::placeholder {
+        opacity: 0;
+        transition: opacity .3s;
+      }
+
+      .btn:hover {
+        background-color: #5e6681;
+        color: #ffeba7;
+        box-shadow: 0 8px 24px 0 rgb(16 39 112 / 20%);
+      }
+
+      .btn-link:hover {
+        color: #ffeba7;
+      }
+      .link{
+        color:rgb(219, 199, 199);
+        text-decoration: none;
+      }
+  
+  
+  </style>
+
+<script>
+  function showSuccess() {
+      alert("Booking successfully!");
+  }
+</script>
+</h1>
+<!-- Mirrored from www.urbanui.com/melody/template/pages/samples/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:53 GMT -->
 <head>
-
-
-  <title>Book Now</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  </head>
 
   
-</head>
-
- 
-  <div>
-    <div class="container-fluid page-body-wrapper full-page-wrapper">
-      <div class="content-wrapper d-flex align-items-center auth">
-        <div class="row w-100">
-          <div class="col-lg-4 mx-auto">
-            <div class="auth-form-light text-left p-5">
-              {% for message1 in messages %}
-      <h4 style="color: darkred;">{{message1}}</h4>
+  {% for message1 in messages %}
+      <h4 style="color: darkred;"><script>alert("{{message1}}")</script></h4>
       {% endfor %}
-              <h1 style="text-align: center;">Hello! let's get started</h>
-              <h2 style="text-align: center;" class="font-weight-light">Wealth consists not in having great possessions, but in having few wants</h6>
-              <form class="pt-3" method="POST" align="center">
+      <div class="main">
+        <div class="card">
+          <h4 class="title">Book Now</h4>
+              <form class="pt-3" method="POST" align="center" onsubmit="showSuccess()">
                 {% csrf_token %}
-        
-                <div class="form-group">
-                  Check In
-                  <input type="date" name="checkin" class="form-control form-control-lg" id="exampleInputUsername2" required>
-                </div><br><br>
-                <div class="form-group">
-                  Check Out
-                  <input type="date" name="checkout" class="form-control form-control-lg" id="exampleInputEmail1" required>
-                </div><br><br>
-                <div class="form-group">
-                  No of Adults
-                  <input type="number" min="1"name="noad" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Adults" required>
-                </div><br><br>
-                <div class="form-group">
-                  No of Kids
-                    <input type="number" name="nokid" data-date-inline-picker="true" class="form-control form-control-lg" id="exampleInputPhone1" placeholder="Kids">
-                  </div><br><br>
-                  <div class="form-group">
-                    Booking For
-                    <select name = "booking">
-                      <option value="Houseboat">Houseboat</option>
-                      <option value="Shikkari Boat">Shikkari Boat</option>
-                      <option value="Speed Boat">Speed Boat</option>
-                    </select><br><br>
-                <div class="form-group">
-                  Food Type
+                
+
+                <div class="field">
+                
+                  <input autocomplete="off" placeholder="CheckIn" class="input-field" name="checkin" type="date">
+                </div>
+                <div class="field">
+                
+                  <input autocomplete="off" placeholder="CheckOut" class="input-field" name="checkout" type="date">
+                </div>
+                <div class="field">
+                  
+                  <input autocomplete="off" placeholder="No of Adults" class="input-field" name="noad" type="number">
+                </div>
+
+                <div class="field">
+                  
+                  <input autocomplete="off" placeholder="No of Kids" class="input-field" name="nokid" type="number">
+                </div>
+
+                
+                <div class="select-container">
+                  
+                  <select name = "booking">
+                    <option value="Veg and Non Veg">Booking For</option>
+                    <option value="Houseboat">Houseboat</option>
+                    <option value="Shikkari Boat">Shikkari Boat</option>
+                    <option value="Speed Boat">Speed Boat</option>
+                  </select><br><br>
+                </div>
+               
+                <div class="select-container">
+                  
                   <select name = "food">
-                    <option>Type</option>
+                    <option value="Veg and Non Veg">Choose the food type</option>
+                    <option value="Veg and Non Veg">Veg and Non-Veg</option>
                     <option value="Veg">Veg</option>
                     <option value="Non-Veg">Non Veg</option>
-                    <option value="Veg and Non Veg">Veg and Non-Veg</option>
+                    
                   </select><br><br>
-                <div class="mt-3">
-                  <!-- <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="{% static '../../index-2.html' %}">SIGN UP</a> -->
-                  
-                  <button class="btn btn-block btn-facebook auth-form-btn">
-                    Book Now
-                   </button>
                 </div>
-            
+
+                <div class="mt-3">
+                  
+                  <!-- <button>Sign In</button> -->
+                  <button class="btn btn-block btn-facebook auth-form-btn">
+                   Book Now
+                  </button>
+                </div>
+
               </form>
             </div>
           </div>
+          <br>
+          <br>
+          
         </div>
-      </div><br><br>
-
-
-      <!-- content-wrapper ends -->
+      </div>
     </div>
-    <!-- page-body-wrapper ends -->
   </div>
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  
-  <!-- endinject -->
-  <script>
-    function onlyNumberKey(evt) {
-  
-        // Only ASCII charactar in that range allowed
-        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
-        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
-            return false;
-        return true;
-    }
-  </script>
+  <!-- content-wrapper ends -->
+</div>
+<!-- page-body-wrapper ends -->
+</div>
+<!-- container-scroller -->
+<!-- plugins:js -->
+
 </body>
 
 
-<!-- Mirrored from www.urbanui.com/melody/template/pages/samples/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:53 GMT -->
+<!-- Mirrored from www.urbanui.com/melody/template/pages/samples/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:53 GMT -->
 </html>

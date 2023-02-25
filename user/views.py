@@ -19,8 +19,6 @@ def signup(request):
         else:
             user = user.objects.create_user(username=username, name=name, email=email,phone=phone,password=password )
             user.save()
-            print("User created")
-            messages.info(request,'Account created successfully')
             return redirect('login')
     else:
         return render(request,'signup.html')
